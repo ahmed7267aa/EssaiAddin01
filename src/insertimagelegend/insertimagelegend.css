@@ -1,0 +1,53 @@
+:root {
+  font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial;
+}
+body {
+  padding: 18px;
+  max-width: 900px;
+}
+h1 {
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+}
+p.lead {
+  color: #333;
+  margin-top: 0;
+}
+.checks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+}
+button {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  background: #f6f6f6;
+}
+.ok {
+  color: green;
+  font-weight: 700;
+}
+.ko {
+  color: #b30000;
+  font-weight: 700;
+}
+pre {
+  background: #f8f8f8;
+  padding: 8px;
+  border-radius: 6px;
+  overflow: auto;
+}
+.log {
+  margin-top: 12px;
+}
+
+
+.ok { color: #0a7a0a; font-weight: 600; }   
+.ko { color: #c62828; font-weight: 600; }

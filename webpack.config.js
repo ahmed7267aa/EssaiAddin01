@@ -14,18 +14,25 @@ async function getHttpsOptions() {
 
 module.exports = async (env, options) => {
   const dev = options.mode === "development";
+  // Définir explicitement le mode pour résoudre le warning
+  const mode = dev ? "development" : "production";
+  
   const config = {
+    // Ajout du mode explicitement
+    mode: mode,
     devtool: "source-map",
     entry: {
       polyfill: ["core-js/stable", "regenerator-runtime/runtime"],
-      taskpane: ["./src/taskpane/taskpane.js", "./src/taskpane/taskpane.html"],
+      // CORRIGÉ: Seul le fichier JS est dans l'entrée, pas le HTML
+      insertimagelegend: "./src/insertimagelegend/insertimagelegend.js",
       commands: "./src/commands/commands.js",
     },
     output: {
       clean: true,
     },
+    // CORRIGÉ: Suppression de .html dans les extensions
     resolve: {
-      extensions: [".html", ".js"],
+      extensions: [".js", ".json"],
     },
     module: {
       rules: [
@@ -52,9 +59,9 @@ module.exports = async (env, options) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        filename: "taskpane.html",
-        template: "./src/taskpane/taskpane.html",
-        chunks: ["polyfill", "taskpane"],
+        filename: "insertimagelegend.html",
+        template: "./src/insertimagelegend/insertimagelegend.html",
+        chunks: ["polyfill", "insertimagelegend"],
       }),
       new CopyWebpackPlugin({
         patterns: [
