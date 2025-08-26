@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Validateur — Figures & Légendes</title>
+  <style>
+    :root {
+      font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+    
+    body {
+      padding: 18px;
+      max-width: 900px;
+      margin: 0 auto;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+      color: #2c3e50;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+    
+    p.lead {
+      color: #555;
+      margin-top: 0;
+      font-size: 0.95rem;
+    }
+    
+    .checks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 14px;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    button {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #bbb;
+      background: #f6f6f6;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 500;
+      margin-top: 8px;
+      width: 100%;
+    }
+    
+    button:hover {
+      background: #e9e9e9;
+      border-color: #999;
+      transform: translateY(-1px);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    .ok {
+      color: #2e7d32;
+      font-weight: 700;
+    }
+    
+    .ko {
+      color: #b30000;
+      font-weight: 700;
+    }
+    
+    pre {
+      background: #f8f8f8;
+      padding: 10px;
+      border-radius: 6px;
+      overflow: auto;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+    
+    .log {
+      margin-top: 12px;
+      min-height: 20px;
+    }
+    
+    /* Styles pour le guide explicatif */
+    .guide-section {
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed #eee;
+    }
+    
+    .guide-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .guide-section h3 {
+      margin: 10px 0;
+      color: #2c3e50;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.15rem;
+    }
+    
+    .guide-section p {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+    
+    .guide-section ol {
+      padding-left: 22px;
+      margin: 12px 0;
+    }
+    
+    .guide-section li {
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    
+    .guide-section em {
+      background: #f0f7ff;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-style: normal;
+      border-left: 2px solid #4a90e2;
+    }
+    
+    .guide-section strong {
+      color: #2c3e50;
+    }
+    
+    .tip {
+      background: #e6f7ff;
+      border-left: 3px solid #1890ff;
+      padding: 10px 14px;
+      margin: 12px 0;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.95rem;
+    }
+    
+    .tip strong {
+      color: #1890ff;
+    }
+    
+    .guide-section .note {
+      background: #fffbe6;
+      border-left: 3px solid #faad14;
+      padding: 10px 14px;
+      margin: 12px 0;
+      border-radius: 0 4px 4px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Validateur automatique — Figures & Légendes</h1>
+
+  <!-- Guide explicatif -->
+  <div class="card" style="margin-top:12px">
+    <strong>Guide d'utilisation — Comment faire manuellement dans Word</strong>
+    
+    <div class="guide-section">
+      <h3>🖼️ Images</h3>
+      <p><strong>À quoi ça sert :</strong> Illustrer un concept, clarifier une explication ou présenter des données visuelles (schémas, graphiques, photos).</p>
+      <p><strong>Pourquoi les utiliser :</strong> Améliore la compréhension, rompt la monotonie du texte et rend le document plus professionnel.</p>
+      <p><strong>Comment insérer une image :</strong> 
+        <ol>
+          <li>Allez dans l'onglet <strong>Insertion</strong></li>
+          <li>Cliquez sur <strong>Images</strong> → <strong>Parcourir les fichiers</strong></li>
+          <li>Sélectionnez votre image et validez</li>
+          <li><em>Conseil :</em> Maintenez <strong>MAJ</strong> en insérant pour conserver les proportions</li>
+        </ol>
+      </p>
+      <div class="tip">
+        <strong>À savoir :</strong> Les images doivent être de bonne qualité (minimum 300 DPI pour impression) et correctement alignées dans le texte. 
+        Évitez les images trop grandes qui perturbent la lecture.
+      </div>
+      <div class="note">
+        <strong>Attention :</strong> Les images doivent être placées dans le flux de texte (pas en mode "hors texte") pour que les légendes fonctionnent correctement.
+      </div>
+    </div>
+
+    <div class="guide-section">
+      <h3>🔖 Légendes</h3>
+      <p><strong>À quoi ça sert :</strong> Décrire le contenu de l'image, fournir un contexte et permettre les références croisées ("voir Figure 1").</p>
+      <p><strong>Pourquoi les utiliser :</strong> Obligatoire dans les documents académiques, améliore l'accessibilité (pour les lecteurs d'écran).</p>
+      <p><strong>Comment créer une légende :</strong> 
+        <ol>
+          <li>Cliquez droit sur l'image → <strong>Insérer une légende</strong></li>
+          <li>Choisissez <strong>Figure</strong> dans la liste déroulante</li>
+          <li>Écrivez votre description après le numéro</li>
+          <li>Cliquez sur <strong>Centrer</strong> dans l'onglet Accueil</li>
+          <li><em>Important :</em> La légende doit être <strong>sous</strong> l'image</li>
+        </ol>
+      </p>
+      <div class="tip">
+        <strong>Format standard :</strong> "Figure X : Description courte et précise". 
+        Ne commencez pas par "Image de..." ou "Schéma montrant..." - soyez concis et descriptif.
+      </div>
+    </div>
+
+    <div class="guide-section">
+      <h3>📑 Liste des figures</h3>
+      <p><strong>À quoi ça sert :</strong> Cataloguer toutes les figures avec leurs numéros et numéros de page pour une navigation rapide.</p>
+      <p><strong>Pourquoi l'utiliser :</strong> Obligatoire dans les mémoires/rapports, permet aux lecteurs de trouver facilement les illustrations.</p>
+      <p><strong>Comment générer la liste :</strong> 
+        <ol>
+          <li>Placez le curseur où vous voulez la liste (généralement après la table des matières)</li>
+          <li>Onglet <strong>Références</strong> → <strong>Table des illustrations</strong></li>
+          <li>Sélectionnez <strong>Figure</strong> comme étiquette</li>
+          <li>Cocher <strong>Utiliser des hyperliens</strong></li>
+          <li>Cliquez sur <strong>OK</strong></li>
+        </ol>
+      </p>
+      <div class="tip">
+        <strong>Mise à jour :</strong> Si vous ajoutez/modifiez des figures, faites un clic droit sur la liste → <strong>Mettre à jour le champ</strong> 
+        ou appuyez sur <strong>Ctrl + A</strong> puis <strong>F9</strong>.
+      </div>
+    </div>
+
+    <div class="guide-section">
+      <h3>🔗 Liens cliquables</h3>
+      <p><strong>À quoi ça sert :</strong> Permettre de cliquer sur une entrée de la liste pour accéder directement à la figure correspondante.</p>
+      <p><strong>Pourquoi les utiliser :</strong> Essentiel pour les documents numériques, améliore l'expérience utilisateur.</p>
+      <p><strong>Comment vérifier les liens :</strong> 
+        <ol>
+          <li>Générez la liste des figures avec l'option <strong>Utiliser des hyperliens</strong></li>
+          <li>Appuyez sur <strong>Ctrl</strong> en cliquant sur une entrée de la liste</li>
+          <li>Le document doit se déplacer automatiquement vers la figure</li>
+          <li><em>Dépannage :</em> Faites <strong>Ctrl + A</strong> puis <strong>F9</strong> pour mettre à jour les champs</li>
+        </ol>
+      </p>
+      <div class="tip">
+        <strong>Problèmes courants :</strong> Si les liens ne fonctionnent pas, vérifiez que :
+        <ul style="padding-left: 20px; margin-top: 8px;">
+          <li>Les légendes ont été créées avec la fonction "Insérer une légende"</li>
+          <li>La liste a été générée avec l'option "Utiliser des hyperliens"</li>
+          <li>Le document a été mis à jour (Ctrl+A + F9)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+  
